@@ -6,7 +6,7 @@ j = 0
 
 class euroData(object):
     email = " "
-    access_code = " "
+    access_code = 0
     turkey = 0
 
 sampleData = euroData()
@@ -23,24 +23,29 @@ client = gspread.authorize(creds)
 sheet = client.open("EU").sheet1
 
 # gspead.models.worksheet
-print type(sheet) 
- 
-# Extract and print all of the values
-list_of_hashes = sheet.cell(2,2)
 
 while i < sheet.col_count:
     while j < sheet.row_count:
         if i == 2:
-            sampleData.email = sheet.cell(i,j)
+            sampleData.email = str(sheet.cell(i,j))
+            i += 1
         if i == 3:
-            sampleData.access_code = sheet.cell(i,j)
+            sampleData.access_code = sheet.cell(i,j).value
+            i += 1
         if i == 4:
-            sampleData.turkey = sheet.cell(i,j)
+            sampleData.turkey = sheet.cell(i,j).value
+            i += 1
         i += 1
         j += 1
     allData.append(sampleData)
 
+i = 0
+
+for sampleData in allData:
+    print(allData[i].email)
+    print(allData[i].access_code)
+    print(allData[i].turkey)
+    i += 1
+
 # Structure of data
 # Date and Time | Email | Access Code | Scores
-
-print(allData)
