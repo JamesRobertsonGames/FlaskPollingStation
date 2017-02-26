@@ -27,16 +27,13 @@ sheet = client.open("EU").sheet1
 while i < sheet.col_count:
     while j < sheet.row_count:
         if i == 2:
-            sampleData.email = str(sheet.cell(i,j))
-            i += 1
+            sampleData.email = sheet.cell(i,j)
         if i == 3:
             sampleData.access_code = sheet.cell(i,j).value
-            i += 1
         if i == 4:
             sampleData.turkey = sheet.cell(i,j).value
-            i += 1
+            j +=1
         i += 1
-        j += 1
     allData.append(sampleData)
 
 i = 0
