@@ -11,8 +11,11 @@ client = gspread.authorize(creds)
 # Make sure you use the right name here.
 sheet = client.open("EU").sheet1
 
-print type(sheet)
+print type(sheet) # gspead.models.worksheet
+
+gspread.models.worksheet
  
 # Extract and print all of the values
-list_of_hashes = sheet.get_all_records()
+list_of_hashes = sheet.row_values(1)
+
 print(list_of_hashes)
