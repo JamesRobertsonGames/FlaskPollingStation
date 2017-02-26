@@ -22,7 +22,8 @@ client = gspread.authorize(creds)
 # Make sure you use the right name here.
 sheet = client.open("EU").sheet1
 
-print type(sheet) # gspead.models.worksheet
+# gspead.models.worksheet
+print type(sheet) 
  
 # Extract and print all of the values
 list_of_hashes = sheet.cell(2,2)
@@ -38,7 +39,6 @@ while i < sheet.col_count:
         i += 1
         j += 1
     allData.append(sampleData)
-    
 
 # Structure of data
 # Date and Time | Email | Access Code | Scores
