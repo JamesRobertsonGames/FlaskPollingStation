@@ -1,5 +1,6 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+import copy
 
 i = 0
 j = 0
@@ -24,17 +25,14 @@ sheet = client.open("EU").sheet1
 
 # gspead.models.worksheet
 
-while i < sheet.col_count:
-    while j < sheet.row_count:
-        if i == 2:
-            sampleData.email = sheet.cell(i,j)
-        if i == 3:
-            sampleData.access_code = sheet.cell(i,j).value
-        if i == 4:
-            sampleData.turkey = sheet.cell(i,j).value
-            j +=1
-        i += 1
-    allData.append(sampleData)
+while i < 5:
+
+    i += 1
+    sampleData.email = sheet.cell(i,2)
+    sampleData.access_code = sheet.cell(i,3).value
+    sampleData.turkey = sheet.cell(i,4).value
+
+    allData.append(copy.copy(sampleData))
 
 i = 0
 
