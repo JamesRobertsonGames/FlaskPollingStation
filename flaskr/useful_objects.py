@@ -12,6 +12,7 @@ class sheet_reader (object):
     email_dict = defaultdict(template_email_val)
 
     def __init__(self):
+        return
             
     def read_sheets(self):
         # Read it in with "ALL CELLS"
@@ -29,7 +30,6 @@ class sheet_reader (object):
     def check_email_and_token(self):
         # check that list against the txt file with a large array of emails and tokens
         # I'm just going to hard code it in though
-        
         return
 
     def sequence(self):
