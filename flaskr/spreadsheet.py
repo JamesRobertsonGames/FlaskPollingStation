@@ -25,24 +25,28 @@ sheet = client.open("EU").sheet1
 
 # gspead.models.worksheet
 
-temp = sheet.get_all_values()
+# temp = sheet.get_all_values()
 
-#while i < 5:
 
-#    i += 1
-#    sampleData.email = sheet.cell(i,2)
-#    sampleData.access_code = sheet.cell(i,3).value
-#    sampleData.turkey = sheet.cell(i,4).value
 
-#    allData.append(copy.copy(sampleData))
+while i < 5:
 
-#for sampleData in allData:
-#    print(allData[i].email)
-#    print(allData[i].access_code)
-#    print(allData[i].turkey)
-#    i += 1
+    i += 1
+    sampleData.email = sheet.cell(i,2).value
+    sampleData.access_code = sheet.cell(i,3).value
+    sampleData.turkey = sheet.cell(i,4).value
 
-print temp
+    allData.append(copy.copy(sampleData))
+
+i = 0 
+
+for sampleData in allData:
+    print(allData[i].email)
+    print(allData[i].access_code)
+    print(allData[i].turkey)
+    i += 1
+
+# print temp
 
 # Structure of data
 # Date and Time | Email | Access Code | Scores
