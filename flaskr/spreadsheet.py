@@ -8,7 +8,8 @@ j = 0
 class euroData(object):
     email = " "
     access_code = 0
-    turkey = 0
+    moldova = 0
+    united_kingdom = 0
 
 sampleData = euroData()
 
@@ -44,7 +45,8 @@ i = 0
 for sampleData in allData:
     print(allData[i].email)
     print(allData[i].access_code)
-    print(allData[i].turkey)
+    print(allData[i].moldova)
+    print(allData[i].united_kingdom)
     i += 1
 
 # print temp
