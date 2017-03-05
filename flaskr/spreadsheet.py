@@ -28,8 +28,9 @@ sheet = client.open("EU").sheet1
 # temp = sheet.get_all_values()
 
 
+i = 1
 
-while i < 5:
+while i < 2:
 
     i += 1
     sampleData.email = sheet.cell(i,2).value
