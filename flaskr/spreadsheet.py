@@ -34,6 +34,7 @@ class euro_manager(object):
         return
     
     def store_data_locally(self):
+        
         # Index set to one
         i = 1
 
@@ -55,6 +56,7 @@ class euro_manager(object):
         return
 
     def print_all_data(self):
+
         # Index set to zero
         i = 0 
 
