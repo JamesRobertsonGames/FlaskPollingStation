@@ -2,9 +2,6 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import copy
 
-i = 0
-j = 0
-
 class euroData(object):
     email = " "
     access_code = 0
@@ -27,7 +24,6 @@ class euro_manager(object):
     sheet = 0
 
     def __init__(self):
-        open_data()
         return
     
     def open_data(self):
@@ -42,26 +38,30 @@ class euro_manager(object):
         i = 1
         while i < 3:
             i += 1
-            self.sampleData.email = sheet.cell(i,2).value
-            self.sampleData.moldova = sheet.cell(i,3).value
-            self.sampleData.united_kingdom = sheet.cell(i,4).value
-            self.sampleData.access_code = sheet.cell(i,5).value
+            self.sampleData.email = self.sheet.cell(i,2).value
+            self.sampleData.moldova = self.sheet.cell(i,3).value
+            self.sampleData.united_kingdom = self.sheet.cell(i,4).value
+            self.sampleData.access_code = self.sheet.cell(i,5).value
 
-            self.allData.append(copy.copy(sampleData))
+            self.allData.append(copy.copy(self.sampleData))
         return
 
     def print_all_data(self):
         i = 0 
-        for sampleData in allData:
-            print(allData[i].email)
-            print(allData[i].moldova)
-            print(allData[i].united_kingdom)
-            print(allData[i].access_code)
+        for self.sampleData in self.allData:
+            print(self.allData[i].email)
+            print(self.allData[i].moldova)
+            print(self.allData[i].united_kingdom)
+            print(self.allData[i].access_code)
             i += 1
         return
         
 
-
+if __name__ == "__main__":
+    manager = euro_manager()
+    manager.open_data()
+    manager.store_data_locally()
+    manager.print_all_data()
 
 # gspead.models.worksheet
 
