@@ -12,7 +12,7 @@ class euro_manager(object):
 
     sampleData = euroData()
 
-    allData = []
+    records = []
  
     scope = 0
     creds = 0
@@ -34,15 +34,15 @@ class euro_manager(object):
         return
     
     def store_data_locally(self):
-        
+
         # Index set to one
         i = 1
 
-        # Width
-        height_of_table = 3
+        # Number of Votes
+        number_of_records = 3
 
         # Itterate through rows
-        while i < height_of_table:
+        while i < number_of_records:
             i += 1
 
             # All the data from the rows
@@ -52,7 +52,7 @@ class euro_manager(object):
             self.sampleData.access_code = self.sheet.cell(i,5).value
 
             # Append a copy of it to the end of the list
-            self.allData.append(copy.copy(self.sampleData))
+            self.records.append(copy.copy(self.sampleData))
         return
 
     def print_all_data(self):
@@ -61,11 +61,11 @@ class euro_manager(object):
         i = 0 
 
         # Get all of the data and print it
-        for self.sampleData in self.allData:
-            print(self.allData[i].email)
-            print(self.allData[i].moldova)
-            print(self.allData[i].united_kingdom)
-            print(self.allData[i].access_code)
+        for self.sampleData in self.records:
+            print(self.records[i].email)
+            print(self.records[i].moldova)
+            print(self.records[i].united_kingdom)
+            print(self.records[i].access_code)
 
             # Increment Index
             i += 1
