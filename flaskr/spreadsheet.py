@@ -4,9 +4,9 @@ import copy
 
 class euroData(object):
     email = " "
-    access_code = 0
     moldova = 0
     united_kingdom = 0
+    access_code = 0
 
 class euro_manager(object):
 
@@ -39,13 +39,16 @@ class euro_manager(object):
         i = 1
 
         # Number of Votes
-        number_of_records = 3
+        number_of_records = 40
 
         # Itterate through rows
         while i < number_of_records:
             i += 1
 
             # All the data from the rows
+            if self.sheet.cell(i,2).value =='':
+                break
+            
             self.sampleData.email = self.sheet.cell(i,2).value
             self.sampleData.moldova = self.sheet.cell(i,3).value
             self.sampleData.united_kingdom = self.sheet.cell(i,4).value
