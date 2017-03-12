@@ -91,10 +91,11 @@ class euro_manager(object):
         return
 
     def pop_invalid_emails_out(self):
-
-        for self.sampleData in self.records:
-            # this might actually have issues when it gets to popping 
-            self.records
+        
+        i = 0 
+        while i < len(self.records):
+            if self.validation_checker.check_email_and_token(self.records[i].email,self.records[i].access_code):
+            i += 1
 
 
         return
