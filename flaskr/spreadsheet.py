@@ -1,6 +1,7 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import copy
+from useful_objects import *
 
 class euroData(object):
     email = " "
@@ -8,9 +9,22 @@ class euroData(object):
     united_kingdom = 0
     access_code = 0
 
+    def __init__ (self, email, access_code, moldova, united_kingdom):
+        # This might turn into a monster but it is fine
+        self.email = email
+        self.access_code = access_code
+        self.moldova = moldova
+        self.united_kingdom = united_kingdom
+
+    def print_all_values():
+        # I can hide everything inside of This
+        return
+
+
 class euro_manager(object):
 
     sampleData = euroData()
+    validation_checker = email_reader()
 
     records = []
  
@@ -48,11 +62,13 @@ class euro_manager(object):
             # All the data from the rows
             if self.sheet.cell(i,2).value =='':
                 break
-            
-            self.sampleData.email = self.sheet.cell(i,2).value
-            self.sampleData.moldova = self.sheet.cell(i,3).value
-            self.sampleData.united_kingdom = self.sheet.cell(i,4).value
-            self.sampleData.access_code = self.sheet.cell(i,5).value
+
+            self.sampleData(self.sheet.cell(i,2).value, self.sheet.cell(i,5).value, 
+                            self.sheet.cell(i,3).value, self.sheet.cell(i,4).value)
+            # self.sampleData.email = self.sheet.cell(i,2).value
+            # self.sampleData.moldova = self.sheet.cell(i,3).value
+            # self.sampleData.united_kingdom = self.sheet.cell(i,4).value
+            # self.sampleData.access_code = self.sheet.cell(i,5).value
 
             # Append a copy of it to the end of the list
             self.records.append(copy.copy(self.sampleData))
@@ -73,6 +89,16 @@ class euro_manager(object):
             # Increment Index
             i += 1
         return
+
+    def pop_invalid_emails_out(self):
+
+        for self.sampleData in self.records:
+            # this might actually have issues when it gets to popping 
+            self.records
+
+
+        return
+
         
 if __name__ == "__main__":
     manager = euro_manager()
